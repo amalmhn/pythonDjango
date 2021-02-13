@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
+from .views import get_addition_page,calculate
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('todo/',include('todoapp.urls')),
-    path('user/',include('usersapp.urls')),
-    path('math/',include('mathapp.urls'))
+    path('add',get_addition_page,name='getadd'),
+    path('calc',calculate,name='calc')
+
 
 ]

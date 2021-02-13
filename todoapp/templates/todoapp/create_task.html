@@ -8,15 +8,21 @@
 
 </head>
 <body>
+
     <div class="container">
+        <form method="post" action="{%url 'add'%}"> <!--       this is django template language     -->
+            {%csrf_token%}
+<!-- Token is for security purpose. Cross site request forgery-->
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
                 <label>taskname</label>
-                <input type="text" >
+                <input type="text" name="task" >
+                <input type="submit" value="Crt">
             </div>
             <div class="col-4"></div>
         </div>
+            </form>
     </div>
 </body>
 <!-- JavaScript Bundle with Popper -->

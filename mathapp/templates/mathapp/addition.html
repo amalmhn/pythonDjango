@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+<body>
+<h1>Addition</h1>
+<form action="{%url 'calc'%}" method="post">
+    {%csrf_token%}
+<!--    the django post actions will be only done in form tag-->
+    <label for="">first</label>
+    <input type="text" name="num1">
+    <label for="">second</label>
+    <input type="text" name="num2">
+    <input type="submit" value="add">
+</form>
+{%if result%}
+<h1>Result{{result}}</h1>
+{% endif %}
+
+</body>
+</html>

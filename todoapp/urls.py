@@ -19,5 +19,5 @@ from todoapp.views import create_task,addTask
 
 urlpatterns = [
     path('create/',create_task),
-    path('add/',addTask),
+    path('add/',addTask,name='add'),
 ]

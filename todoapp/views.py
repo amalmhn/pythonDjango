@@ -7,4 +7,6 @@ def create_task(request):
     return render(request,'todoapp/create_task.html')
 
 def addTask(request):
-    return render(request,'todoapp/addTask.html')
+    my_task = request.POST.get('task')
+    print(my_task)
+    return HttpResponse('<h1>AddYourTaskView</h1>')
