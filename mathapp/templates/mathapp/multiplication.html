@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Multiplication</h1>
+<form action="{%url 'multiplication'%}" method="post">
+    {%csrf_token%}
+    <label for="">first</label>
+    <input type="text" name="num1">
+    <label for="">second</label>
+    <input type="text" name="num2">
+    <input type="submit" value="Mul">
+</form>
+{%if result%}
+<h1>Result{{result}}</h1>
+{%endif%}
+
+</body>
+</html>

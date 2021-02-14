@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-from .views import get_addition_page,calculate
+from .views import get_addition_page,calculate,get_sub_page,substraction,get_mul_page,multiplication,\
+    get_div_page,division
 
 urlpatterns = [
     path('add',get_addition_page,name='getadd'),
-    path('calc',calculate,name='calc')
+    path('calc',calculate,name='calc'),
+    path('sub',get_sub_page,name='sub'),
+    path('substraction',substraction,name='substraction'),
+    path('mul',get_mul_page,name='mul'),
+    path('multiplication',multiplication,name='multiplication'),
+    path('div',get_div_page,name='div'),
+    path('division',division,name='division')
 
 
 ]
