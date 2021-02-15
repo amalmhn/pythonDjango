@@ -11,9 +11,9 @@
 <form action="{%url 'calc'%}" method="post">
     {%csrf_token%}
 <!--    the django post actions will be only done in form tag-->
-    <label for="">first</label>
+    <label>first</label>
     <input type="text" name="num1">
-    <label for="">second</label>
+    <label>second</label>
     <input type="text" name="num2">
     <input type="submit" value="add">
 </form>
