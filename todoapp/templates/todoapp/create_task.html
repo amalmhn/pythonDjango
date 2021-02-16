@@ -11,8 +11,9 @@
 
 </head>
 <body id="bod">
-    <h2>CreateTask</h2>
+
     <div class="container">
+        <h2>CreateTask</h2>
         <form method="post" action="{%url 'add'%}"> <!--       this is django template language     -->
             {%csrf_token%}
 <!-- Token is for security purpose. Cross site request forgery-->
@@ -20,12 +21,34 @@
             <div class="col-4"></div>
             <div class="col-4">
                 <label>taskname</label>
-                <input type="text" name="task" >
+                <input type="text" name="task" ><br>
+                <label>Date</label>
+                <input type="text" name="date" ><br>
+                <label>Status</label>
+                <input type="text" name="status" ><br>
                 <input type="submit" value="Crt">
             </div>
             <div class="col-4"></div>
         </div>
             </form>
+        <table class="table">
+            <tr>
+                <td>id</td>
+                <td>TaskName</td>
+                <td>Date</td>
+                <td>Status</td>
+            </tr>
+            {%for task in tasks%}
+            <tr>
+                <td>{{task.id}}</td>
+                <td>{{task.task_name}}</td>
+                <td>{{task.date}}</td>
+                <td>{{task.status}}</td>
+                <td><button type="button" class="btn btn-primary">Edit</button></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
+            </tr>
+            {%endfor%}
+        </table>
     </div>
 </body>
 <!-- JavaScript Bundle with Popper -->

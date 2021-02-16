@@ -16,14 +16,7 @@ class Tasks(models.Model):
     #if it is all you need to use the for loop
 #tasks = Tasks.objects.get(id=1/task_name='billpayment')
     #if it is get you can print that directly..eg.. tasks.task_name
-    def __str__(self): #this is standard.You should always put this
+    def __str__(self): #this is standard.You should always put this to print the object or hexadecimel
         return self.task_name
 
-class Students(models.Model):
-    student_name = models.CharField(max_length=200)
-    course = models.CharField(max_length=200)
-    total = models.CharField(max_length=100)
-
-    def __str__(self): #this is standard.You should always put this
-        return self.student_name
 
