@@ -12,7 +12,18 @@ class Tasks(models.Model):
 #this is django ORM
 #ob = Tasks(task_name='bill payment',date='16/2/21',status='not completed')
 #ob.save()
-#tasks=Tasks.objects.all()
-
+#tasks=Tasks.objects.all() #this is an orm query to get the details inside the db
+    #if it is all you need to use the for loop
+#tasks = Tasks.objects.get(id=1/task_name='billpayment')
+    #if it is get you can print that directly..eg.. tasks.task_name
     def __str__(self): #this is standard.You should always put this
         return self.task_name
+
+class Students(models.Model):
+    student_name = models.CharField(max_length=200)
+    course = models.CharField(max_length=200)
+    total = models.CharField(max_length=100)
+
+    def __str__(self): #this is standard.You should always put this
+        return self.student_name
+
