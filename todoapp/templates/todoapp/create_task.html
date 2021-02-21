@@ -14,22 +14,25 @@
 
     <div class="container">
         <h2>CreateTask</h2>
-        <form method="post" action="{%url 'add'%}"> <!--       this is django template language     -->
+        <form method="post" action=""> <!--       this is django template language     -->
             {%csrf_token%}
-<!-- Token is for security purpose. Cross site request forgery-->
-        <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4">
-                <label>taskname</label>
-                <input type="text" name="task" ><br>
-                <label>Date</label>
-                <input type="text" name="date" ><br>
-                <label>Status</label>
-                <input type="text" name="status" ><br>
-                <input type="submit" value="Crt">
-            </div>
-            <div class="col-4"></div>
-        </div>
+<!--&lt;!&ndash; Token is for security purpose. Cross site request forgery&ndash;&gt;-->
+<!--        <div class="row">-->
+<!--            <div class="col-4"></div>-->
+<!--            <div class="col-4">-->
+<!--                <label>taskname</label>-->
+<!--                <input type="text" name="task" ><br>-->
+<!--                <label>Date</label>-->
+<!--                <input type="text" name="date" ><br>-->
+<!--                <label>Status</label>-->
+<!--                <input type="text" name="status" ><br>-->
+<!--                <input type="submit" value="Crt">-->
+<!--            </div>-->
+<!--            <div class="col-4"></div>-->
+<!--        </div>-->
+            {{form.as_p}}
+<!--            as_p os to get the paragraph-->
+            <input type="submit">
             </form>
         <table class="table">
             <tr>
@@ -44,8 +47,8 @@
                 <td>{{task.task_name}}</td>
                 <td>{{task.date}}</td>
                 <td>{{task.status}}</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <td><a href="{%url 'update' task.id%}" class="btn btn-primary">Edit</a></td>
+                <td><a href="{%url 'delete' task.id%}" class="btn btn-danger">Delete</a></td>
             </tr>
             {%endfor%}
         </table>

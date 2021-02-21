@@ -14,13 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.shortcuts import render
 from django.urls import path
-from todoapp.views import create_task,addTask,get_task_search,date_search
+from todoapp.views import create_task,get_task_search,date_search,delete_task,task_update
 
 urlpatterns = [
-    path('create/',create_task),
-    path('add/',addTask,name='add'),
+    path('create/',create_task,name='create'),
+    # path('add/',addTask,name='add'),
     path('search/',get_task_search,name='search'),
     path('datesearch/',date_search,name='datesearch'),
-
+    path('delete/<int:id>',delete_task,name='delete'),
+    path('update/<int:id>',task_update,name='update'),
+    path('',lambda request:render(request,'todoapp/home.html'),name='home'),
 ]
